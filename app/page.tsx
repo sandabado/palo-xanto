@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowDown, ArrowRight, ExternalLink, Play } from "lucide-react"
+import { MagneticField } from "@/components/palo-xanto/magnetic-field"
 import { getPaloProfile } from "@/lib/public-mirror"
 import {
   HOMESTEAD_URL,
@@ -22,12 +23,16 @@ export default async function HomePage() {
               alt=""
               fill
               priority
-              sizes="100vw"
+              sizes="(max-width: 767px) 148vw, (max-width: 1216px) 100vw, 1216px"
               className="object-cover object-[50%_28%]"
             />
           </div>
+          <div className="palo-stage__chromatic-flow" />
+          <MagneticField />
           <i className="palo-stage__beam palo-stage__beam--amber" />
           <i className="palo-stage__beam palo-stage__beam--violet" />
+          <i className="palo-stage__beam palo-stage__beam--coral" />
+          <i className="palo-stage__beam palo-stage__beam--blue" />
           <i className="palo-stage__flare palo-stage__flare--one" />
           <i className="palo-stage__flare palo-stage__flare--two" />
           <i className="palo-stage__flare palo-stage__flare--three" />

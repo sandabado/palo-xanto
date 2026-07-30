@@ -61,3 +61,18 @@ test("artist identity and approved public links are present", () => {
   assert.match(source, /paloxanto\.bandcamp\.com/)
   assert.match(source, /peace@paloxanto\.com/)
 })
+
+test("hero signal field is interactive and motion-safe", () => {
+  const page = readFileSync(join(root, "app/page.tsx"), "utf8")
+  const field = readFileSync(
+    join(root, "components/palo-xanto/magnetic-field.tsx"),
+    "utf8",
+  )
+  const styles = readFileSync(join(root, "app/globals.css"), "utf8")
+
+  assert.match(page, /<MagneticField \/>/)
+  assert.match(field, /prefers-reduced-motion: reduce/)
+  assert.match(field, /pointermove/)
+  assert.match(styles, /palo-magnetic-field/)
+  assert.match(styles, /@media \(prefers-reduced-motion: reduce\)/)
+})

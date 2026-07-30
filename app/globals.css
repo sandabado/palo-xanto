@@ -145,6 +145,36 @@ a, button { -webkit-tap-highlight-color: transparent; }
     linear-gradient(90deg, rgb(17 10 8 / .46), transparent 33% 67%, rgb(17 10 8 / .46)),
     linear-gradient(180deg, rgb(9 7 6 / .12), transparent 45%, rgb(9 7 6 / .72));
 }
+.palo-stage__chromatic-flow {
+  position: absolute;
+  inset: -38%;
+  opacity: .22;
+  background:
+    conic-gradient(
+      from 18deg at 50% 48%,
+      transparent 0deg,
+      rgb(94 123 196 / .33) 34deg,
+      transparent 73deg,
+      rgb(143 91 255 / .35) 124deg,
+      transparent 172deg,
+      rgb(229 107 61 / .28) 226deg,
+      transparent 276deg,
+      rgb(242 195 143 / .32) 326deg,
+      transparent 360deg
+    );
+  filter: blur(74px) saturate(1.25);
+  mix-blend-mode: screen;
+  animation: palo-chromatic-flow 24s linear infinite;
+}
+.palo-magnetic-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: .9;
+  mix-blend-mode: screen;
+}
 .palo-stage__beam {
   position: absolute;
   top: -16%;
@@ -168,6 +198,21 @@ a, button { -webkit-tap-highlight-color: transparent; }
   background: linear-gradient(180deg, rgb(143 91 255 / .48), rgb(209 107 69 / .04) 82%);
   transform: rotate(-12deg);
   animation: palo-beam-violet 12s var(--ease-water) 1.2s infinite alternate;
+}
+.palo-stage__beam--coral {
+  left: 18%;
+  width: min(19vw, 17rem);
+  background: linear-gradient(180deg, rgb(229 107 61 / .46), rgb(229 107 61 / .015) 84%);
+  transform: rotate(19deg);
+  animation: palo-beam-coral 8.8s var(--ease-water) -3.4s infinite alternate;
+}
+.palo-stage__beam--blue {
+  left: auto;
+  right: 18%;
+  width: min(17vw, 15rem);
+  background: linear-gradient(180deg, rgb(94 123 196 / .46), rgb(94 123 196 / .01) 82%);
+  transform: rotate(-21deg);
+  animation: palo-beam-blue 11.4s var(--ease-water) -6.2s infinite alternate;
 }
 .palo-stage__flare {
   position: absolute;
@@ -382,6 +427,21 @@ a, button { -webkit-tap-highlight-color: transparent; }
   0% { opacity: .12; transform: rotate(-8deg) scaleX(1.08); }
   54% { opacity: .27; }
   100% { opacity: .18; transform: rotate(-17deg) scaleX(.85); }
+}
+@keyframes palo-beam-coral {
+  0% { opacity: .08; transform: rotate(15deg) scaleX(.72); }
+  48% { opacity: .3; }
+  100% { opacity: .14; transform: rotate(23deg) scaleX(1.16); }
+}
+@keyframes palo-beam-blue {
+  0% { opacity: .1; transform: rotate(-17deg) scaleX(1.14); }
+  56% { opacity: .27; }
+  100% { opacity: .12; transform: rotate(-25deg) scaleX(.76); }
+}
+@keyframes palo-chromatic-flow {
+  0% { transform: rotate(0deg) scale(.92); }
+  50% { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(.92); }
 }
 @keyframes palo-light-pulse {
   0%, 13%, 100% { opacity: .18; transform: scale(.76); }
